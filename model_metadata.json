@@ -1,0 +1,155 @@
+{
+  "model_name": "Smartphone Resale Price Predictor",
+  "model_version": "1.0.0",
+  "algorithm": "Hist Gradient Boosting",
+  "estimator_class": "HistGradientBoostingRegressor",
+  "trained_on_rows": 3454,
+  "target": {
+    "name": "normalized_used_price",
+    "description": "Normalized price of the used/refurbished device (as published in the dataset)",
+    "unit": "ln(price in EUR), inferred from the data (the Kaggle page does not state it)"
+  },
+  "feature_order": [
+    "normalized_new_price",
+    "internal_memory",
+    "rear_camera_mp",
+    "front_camera_mp",
+    "screen_size",
+    "release_year",
+    "days_used",
+    "device_brand"
+  ],
+  "numeric_features": {
+    "normalized_new_price": {
+      "min": 2.901421594,
+      "max": 7.847840659,
+      "median": 5.2458918494999995
+    },
+    "internal_memory": {
+      "min": 0.01,
+      "max": 1024.0,
+      "median": 32.0
+    },
+    "rear_camera_mp": {
+      "min": 0.08,
+      "max": 48.0,
+      "median": 8.0
+    },
+    "front_camera_mp": {
+      "min": 0.0,
+      "max": 32.0,
+      "median": 5.0
+    },
+    "screen_size": {
+      "min": 5.08,
+      "max": 30.71,
+      "median": 12.83
+    },
+    "release_year": {
+      "min": 2013.0,
+      "max": 2020.0,
+      "median": 2015.5
+    },
+    "days_used": {
+      "min": 91.0,
+      "max": 1094.0,
+      "median": 690.5
+    }
+  },
+  "categorical_features": {
+    "device_brand": [
+      "Acer",
+      "Alcatel",
+      "Apple",
+      "Asus",
+      "BlackBerry",
+      "Celkon",
+      "Coolpad",
+      "Gionee",
+      "Google",
+      "HTC",
+      "Honor",
+      "Huawei",
+      "Infinix",
+      "Karbonn",
+      "LG",
+      "Lava",
+      "Lenovo",
+      "Meizu",
+      "Micromax",
+      "Microsoft",
+      "Motorola",
+      "Nokia",
+      "OnePlus",
+      "Oppo",
+      "Others",
+      "Panasonic",
+      "Realme",
+      "Samsung",
+      "Sony",
+      "Spice",
+      "Vivo",
+      "XOLO",
+      "Xiaomi",
+      "ZTE"
+    ]
+  },
+  "cv": {
+    "folds": 10,
+    "shuffle": true,
+    "random_state": 42,
+    "selection_rule": "lowest mean 10-fold RMSE",
+    "summary": {
+      "Hist Gradient Boosting": {
+        "mean_rmse": 0.2297865820276986,
+        "std_rmse": 0.011275916583443256,
+        "mean_mae": 0.18135018832796712,
+        "mean_r2": 0.8462286262323844,
+        "rank": 1
+      },
+      "SVR": {
+        "mean_rmse": 0.23362123091077777,
+        "std_rmse": 0.017850818537374403,
+        "mean_mae": 0.1793051551847668,
+        "mean_r2": 0.8408367465003177,
+        "rank": 2
+      },
+      "MLP Neural Network": {
+        "mean_rmse": 0.24111716363763208,
+        "std_rmse": 0.013672622436298867,
+        "mean_mae": 0.18794909431365997,
+        "mean_r2": 0.8304765007261887,
+        "rank": 3
+      },
+      "Extra Trees": {
+        "mean_rmse": 0.2411221467706112,
+        "std_rmse": 0.012378877978834196,
+        "mean_mae": 0.1867401332201958,
+        "mean_r2": 0.8306025233984785,
+        "rank": 4
+      },
+      "AdaBoost": {
+        "mean_rmse": 0.2609770296258888,
+        "std_rmse": 0.011227033966380758,
+        "mean_mae": 0.21200350220845704,
+        "mean_r2": 0.8019388756448034,
+        "rank": 5
+      }
+    }
+  },
+  "dataset": {
+    "title": "Used Phones & Tablets Pricing Dataset",
+    "kaggle_ref": "ahsan81/used-handheld-device-data",
+    "url": "https://www.kaggle.com/datasets/ahsan81/used-handheld-device-data",
+    "license": "CC0: Public Domain",
+    "file": "used_device_data.csv",
+    "sha256": "bf053b595d90db86770950630defa09fadfff09978ecd2e03e861d672fbad161"
+  },
+  "library_versions": {
+    "python": "3.14.3",
+    "numpy": "2.4.4",
+    "pandas": "3.0.6",
+    "scikit-learn": "1.9.1",
+    "joblib": "1.6.0"
+  }
+}
